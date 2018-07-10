@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /
 spring:
+  application:
+    name: provider-user
   datasource:
     url: jdbc:mysql://192.168.3.90:3306/cdm_db
     driver-class-name: com.mysql.jdbc.Driver
@@ -16,3 +18,9 @@ management:
   endpoint:
     health:
       show-details: always
+eureka:
+  client:
+    service-url:
+      default-zone: http://127.0.0.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
