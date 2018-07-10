@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>provider-user</name>
-    <description>Demo project for Spring Boot</description>
+    <description>provider-user</description>
 
     <parent>
         <groupId>com.imooc</groupId>
@@ -73,7 +73,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.M1</version>
+                <version>Finchley.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

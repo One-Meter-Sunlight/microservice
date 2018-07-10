@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>consumer-user</name>
-    <description>Demo project for Spring Boot</description>
+    <description>consumer-user</description>
 
     <parent>
         <groupId>com.imooc</groupId>
