@@ -1,6 +1,5 @@
 package com.imooc.controller;
 
-import com.imooc.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,16 +20,5 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController {
 
-    @Autowired
-    private RestTemplate restTemplate;
 
-    @GetMapping("/list")
-    public List<User> list() {
-        return restTemplate.getForObject("http://127.0.0.1:8080/user/list", List.class);
-    }
-
-    @GetMapping("/{id}")
-    public User getById(@PathVariable("id") Integer id) {
-        return restTemplate.getForObject("http://127.0.0.1:8080/user/" + id, User.class);
-    }
 }

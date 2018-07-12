@@ -1,11 +1,14 @@
 spring:
   application:
-    name: discovery-eureka-peer
+    name: discovery-eureka
 server:
   port: 8761
 eureka:
   instance:
-    hostname: peer1
+    hostname: discovery-eureka
+    prefer-ip-address: true
   client:
+    fetch-registry: false
+    register-with-eureka: false
     service-url:
-      default-zone: http://peer2:8762/eureka/
+          default-zone: http://127.0.0.1:8762/eureka/
