@@ -1,11 +1,13 @@
 package com.imooc.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.imooc.domain.User;
+import com.imooc.service.IUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -20,9 +22,11 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController {
 
-    @GetMapping("/list")
-    public List<User> list() {
+    @Autowired
+    private IUser userService;
 
-        return null;
+    @GetMapping("{id}")
+    public User getUserById(@PathVariable("id") Integer id) {
+        return userService.getUsers(id);
     }
 }

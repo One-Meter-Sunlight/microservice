@@ -30,6 +30,7 @@
         <module>discovery-eureka-two</module>
         <module>ribbon-user</module>
         <module>feign-user</module>
+		<module>hystrix-user</module>
         <module>config</module>
     </modules>
 

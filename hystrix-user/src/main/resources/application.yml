@@ -1,5 +1,5 @@
 server:
-  port: 8766
+  port: 8765
 eureka:
   client:
     service-url:
@@ -8,4 +8,4 @@ eureka:
     prefer-ip-address: true
 spring:
   application:
-    name: feign-user
+    name: hystrix-user
