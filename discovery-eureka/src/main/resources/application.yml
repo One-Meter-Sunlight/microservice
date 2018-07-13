@@ -6,11 +6,15 @@ server:
 eureka:
   instance:
     hostname: discovery-eureka
-    prefer-ip-address: true
+    prefer-ip-address: true  # 是否注册ip地址
+    lease-renewal-interval-in-seconds: 10 # 心跳时间间隔，默认30秒
+    lease-expiration-duration-in-seconds: 30  # 租期到期时间，默认90秒 太大 instance 死了， 太小了可能因为网络抖动而误移除
   client:
     fetch-registry: false
     register-with-eureka: false
+    registry-fetch-interval-seconds: 5 # 默认30秒
     service-url:
-          default-zone: http://127.0.0.1:8762/eureka/
+      default-zone: http://127.0.0.1:8762/eureka/
   server:
-    eviction-interval-timer-in-ms: 3000  # Eureka端清理时间
+    eviction-interval-timer-in-ms: 3000 # Eureka端清理时间，默认60秒 60 * 1000
+    enable-self-preservation: false # 是否开启自我保护模式，默认true， 开发环境关闭，生产环境建议打开，防止因为网络问题，短时间内丢失太多客户端，当网络恢复后，自动退出保护模式，增加程序的健壮性

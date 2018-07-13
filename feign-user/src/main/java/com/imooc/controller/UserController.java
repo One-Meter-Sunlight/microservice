@@ -1,7 +1,13 @@
 package com.imooc.controller;
 
+import com.imooc.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 /**
  * 消费者-用户Contorller
@@ -14,4 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 public class UserController {
 
+    @GetMapping("/list")
+    public List<User> list() {
+
+        return null;
+    }
 }

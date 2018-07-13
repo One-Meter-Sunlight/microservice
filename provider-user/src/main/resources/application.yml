@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8082
   servlet:
     context-path: /
 spring:
@@ -24,5 +24,3 @@ eureka:
       default-zone: http://127.0.0.1:8761/eureka/
   instance:
     prefer-ip-address: true
-    lease-expiration-duration-in-seconds: 30  # 租期到期时间，默认90秒
-    lease-renewal-interval-in-seconds: 10  # 心跳时间间隔，默认30秒

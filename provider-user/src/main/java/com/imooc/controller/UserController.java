@@ -4,6 +4,7 @@ import com.imooc.domain.User;
 import com.imooc.service.UserService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Value("${server.port}")
+    private String serverString;
+
     /**
      * 查询所有用户集合
      *
@@ -42,6 +46,7 @@ public class UserController {
             @ApiResponse(code = 500, message = "服务器不能完成请求")}
     )
     public List<User> list() {
+        System.out.println("client 本服务的端口号为："  + serverString);
         return userService.list();
     }
 

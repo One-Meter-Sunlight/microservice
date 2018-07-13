@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   application:
     name: consumer-user
@@ -7,5 +7,6 @@ eureka:
   client:
     service-url:
       default-zone: http://127.0.0.1:8761/eureka/
+    fetch-remote-regions-registry: 20 # 默认是30秒
   instance:
     prefer-ip-address: true

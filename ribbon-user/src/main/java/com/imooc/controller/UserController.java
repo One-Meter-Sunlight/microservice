@@ -1,6 +1,9 @@
 package com.imooc.controller;
 
+import com.imooc.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +23,21 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController {
 
+    @Autowired
+    private RestTemplate restTemplate;
 
+    @Autowired
+    private LoadBalancerClient loadBalancerClient;
+
+    @GetMapping("/list")
+    public List<User> list() {
+        return restTemplate.getForObject("http://PROVIDER-USER/user/list", List.class);
+    }
+
+    @GetMapping("/eureka")
+    public void eureka() {
+        ServiceInstance serviceInstance = loadBalancerClient.choose("PROVIDER-USER");
+        System.out.println(serviceInstance.getUri());
+        // 获得uri之后可以通过httpclient调用改url
+    }
 }
