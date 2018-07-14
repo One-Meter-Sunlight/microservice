@@ -31,7 +31,8 @@
         <module>ribbon-user</module>
         <module>feign-user</module>
 		<module>hystrix-user</module>
-        <module>config</module>
+        <module>config-server</module>
+		<module>config-client</module>
     </modules>
 
 </project>
