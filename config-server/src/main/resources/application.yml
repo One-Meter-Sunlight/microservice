@@ -1,0 +1,20 @@
+server:
+  port: 8088
+eureka:
+  client:
+    service-url:
+      default-zone: http://127.0.0.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/One-Meter-Sunlight/springcloudconfig/
+          search-paths: respo
+          default-label: master
+          username: One-Meter-Sunlight
+          password: chenkaige314159
