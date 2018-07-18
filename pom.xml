@@ -20,6 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <skipTests>true</skipTests>
     </properties>
 
@@ -29,9 +30,9 @@
         <module>discovery-eureka</module>
         <module>ribbon-user</module>
         <module>feign-user</module>
-		<module>hystrix-user</module>
+        <module>hystrix-user</module>
         <module>config-server</module>
-		<module>config-client</module>
+        <module>config-client</module>
     </modules>
 
     <dependencyManagement>
@@ -39,7 +40,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RELEASE</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
